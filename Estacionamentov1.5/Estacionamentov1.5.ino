@@ -25,7 +25,7 @@ int samples[8];
 // data/hora/dias da semana/meses
 int segundo, minuto, hora, dia, mes, ano, DiaDaSemana;
 unsigned long UtlTime;
-char* DiasDaSemana[] = {"", "Domingo", "Segunda", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sabado"};
+char* DiasDaSemana[] = {"", "Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sabado"};
 char* Meses[] = {"", "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
 
 //----------------
