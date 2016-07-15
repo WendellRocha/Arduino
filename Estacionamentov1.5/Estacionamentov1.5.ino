@@ -212,19 +212,19 @@ void loop() {
   
   estadodobotao = digitalRead(botao);
   if (estadodobotao == HIGH) {
-    Serial.print("Cartorio Carlos Ulysses\n");
+    Serial.print("UNIVERSIDADE FEDERAL DE CAMPINA GRANDE\n");
     Serial.print("Ticket de estacionamento\n\n");
     
     if (hora < 23 && hora <= 12) {
-      Serial.print("Bom dia, seja bem-vindo ao Cartorio Carlos Ulysses\n\n");
+      Serial.print("Bom dia, seja bem-vindo\n\n");
     }
 
     else if (hora > 12 && hora < 18) {
-      Serial.print("Boa tarde, seja bem-vindo ao Cartorio Carlos Ulysses\n\n"); 
+      Serial.print("Boa tarde, seja bem-vindo\n\n"); 
     }
 
     else if (hora >= 18 && hora <= 23) {
-      Serial.print("Boa noite, seja bem vindo ao Cartorio Carlos Ulysses\n\n");
+      Serial.print("Boa noite, seja bem-vindo\n\n");
     }
     
    
