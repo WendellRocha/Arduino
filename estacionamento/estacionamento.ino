@@ -1,6 +1,13 @@
-/* Sistema de data e hora retirado do site Labotarório de Garagem       *
+/************************************************************************ 
+ *  Sistema de data e hora retirado do site Labotarório de Garagem      *
  * (http://arduino.labdegaragem.com/Guia_preview/SMK_11_dataehora.html) *
- * Sistema adaptado para se adequar ao uso.                             */
+ * Sistema adaptado para se adequar ao uso.                             *
+ * Feito por: Wendell Stanley Araújo Rocha                              *
+ * Link para o repositório: https://github.com/WendellRocha/Arduino     *
+ * Código desponibilizado para ser utilizado e alterado para se adequar *
+ * ao seu código.                                                       *
+ * Por favor, não retire os créditos.                                   *
+ ************************************************************************/
 
 // cooler, botão e sensor de temperatura
 const int botao = 13; 
