@@ -1,3 +1,11 @@
+/************************************************************************ 
+ * Feito por: Wendell Stanley Araújo Rocha                              *
+ * Link para o repositório: https://github.com/WendellRocha/Arduino     *
+ * Código desponibilizado para ser utilizado e alterado para se adequar *
+ * ao seu código.                                                       *
+ * Por favor, não retire os créditos.                                   *
+ ************************************************************************/
+
 const int ledRed =  13;
 const int ledYellow = 12;
 const int ledGreen = 11;
