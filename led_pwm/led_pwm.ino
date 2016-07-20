@@ -3,7 +3,7 @@
  * Link para o repositório: https://github.com/WendellRocha/Arduino     *
  * Código desponibilizado para ser utilizado e alterado para se adequar *
  * ao seu código.                                                       *
- * Varia o brilho do led variando a tensão da porta PWN.                *
+ * Varia o brilho do led variando a tensão da porta PWM.                *
  * Por favor, não retire os créditos.                                   *
  ************************************************************************/
  
