@@ -37,7 +37,7 @@ Se a temperatura estiver acima de 27ºC o cooler irá para a rotação máxima.
 ## arduino_python
 Utilizando a biblioteca pyserial do Python, fiz um código simples que envia e recebe dados pela comunicação serial do arduino. Nesse código, mando comandos pelo Python via comunicação serial para o arduino e ele acende leds, toca o buzzer, entre outros comandos programados.  
 
-## dec/bin
+## dec_bin
 Um código simples que lê uma letra ou número pela comunicação serial, converte para binário e acende os leds correspondentes ao número binário na barra de leds.  
 
 Dúvidas? Entre em contato comigo! :)  
