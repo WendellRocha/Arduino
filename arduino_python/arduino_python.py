@@ -1,10 +1,11 @@
 # coding: utf-8 
-####################################################
-# Comunicação serial entre o python e o arduino    #
-# 	2016, Adísio, Laryssa e Wendell                #
-# 	UFCG, Iniciação à Computação                   #
-# 	Profª Joseana Fechine                          #
-####################################################
+####################################################################
+# Feito por: Wendell Stanley Arapujo Rocha                         #
+# Link para o repositÃ³rio: https://github.com/WendellRocha/Arduino #
+# CÃ³digo disponibilizado para ser utilizado e alterado para se     #
+# adequar ao seu cÃ³digo.				           #
+# Por favor, nÃ£o retire os crÃ©ditos.                               #
+####################################################################
 
 import serial
 import time
@@ -16,7 +17,7 @@ while True:
 		break
 
 	except serial.SerialException, e:
-		print "Arduino não conectado. tentando novamente em 5 segundos..."
+		print "Arduino nÃ£o conectado. tentando novamente em 5 segundos..."
 		time.sleep(5)
 	
 		
@@ -37,12 +38,12 @@ print"* digite 5                                   *"
 print"* Para encerrar a conexao, digite -1         *"
 print"**********************************************"
 
-while True: # laço indefinido para manter a conexão ativa
+while True: # laÃ§o indefinido para manter a conexÃ£o ativa
 	codigo = int(raw_input("Entre com o codigo: "))
 
-	if codigo == 1: # se o código for igual a 1:
+	if codigo == 1: # se o cÃ³digo for igual a 1:
 		arduino.write('1') # escreve '1' na porta serial do arduino
-		resposta = arduino.read(64) # lê a resposta do arduino com no máximo 64 bytes e atribui à variável resposta
+		resposta = arduino.read(64) # lÃª a resposta do arduino com no mÃ¡ximo 64 bytes e atribui Ã  variÃ¡vel resposta
 		print "Arduino disse: %s" % resposta # imprime a resposta do arduino
 		print "O led piscara durante 60 segundos"
 		
