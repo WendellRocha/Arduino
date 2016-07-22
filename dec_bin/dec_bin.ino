@@ -1,16 +1,16 @@
 /************************************************************************ 
- *  C贸digo base retirado do site Electro Schematics                     *
+ *  C骴igo base retirado do site Electro Schematics                     *
  * (http://www.electroschematics.com/9809/arduino-8-bit-binary-led/)    *
- * C贸digo adaptado para se adequar ao uso.                              *
- * Modifica莽玫es: Wendell Stanley Ara煤jo Rocha                           *
- * Link para o reposit贸rio: https://github.com/WendellRocha/Arduino     *
- * C贸digo desponibilizado para ser utilizado e alterado para se adequar *
- * ao seu c贸digo.                                                       *
- * Por favor, n茫o retire os cr茅ditos.                                   *
+ * C骴igo adaptado para se adequar ao uso.                              *
+ * Modifica珲es: Wendell Stanley Ara鷍o Rocha                           *
+ * Link para o reposit髍io: https://github.com/WendellRocha/Arduino     *
+ * C骴igo desponibilizado para ser utilizado e alterado para se adequar *
+ * ao seu c骴igo.                                                       *
+ * Por favor, n鉶 retire os cr閐itos.                                   *
  ************************************************************************/
 
 int letra = 0;    // variable to store number of conversoes
-const byte numbarra = 10; // n煤mero de leds da barra
+const byte numbarra = 10; // n鷐ero de leds da barra
 int state;        // usado para o estado HIGH ou LOW
  // barra de leds
 byte barra[] = {4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
