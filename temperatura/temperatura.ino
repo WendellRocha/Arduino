@@ -1,10 +1,10 @@
 /************************************************************************
- * Feito por: Wendell Stanley AraÃºjo Rocha                              *
- * Link para o repositÃ³rio: https://github.com/WendellRocha/Arduino     *
- * CÃ³digo desponibilizado para ser utilizado e alterado para se adequar *
- * ao seu cÃ³digo.                                                       *
- * Sistema de controle da rotaÃ§Ã£o do cooler de acordo com a temperatura *
- * Por favor, nÃ£o retire os crÃ©ditos.                                   *
+ * Feito por: Wendell Stanley Araújo Rocha                              *
+ * Link para o repositório: https://github.com/WendellRocha/Arduino     *
+ * Código desponibilizado para ser utilizado e alterado para se adequar *
+ * ao seu código.                                                       *
+ * Sistema de controle da rotação do cooler de acordo com a temperatura *
+ * Por favor, não retire os créditos.                                   *
  ************************************************************************/
 
 const int lm35 = 0;
