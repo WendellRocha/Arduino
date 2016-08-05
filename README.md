@@ -39,5 +39,7 @@ Utilizando a biblioteca pyserial do Python, fiz um código simples que envia e r
 
 ## dec_bin
 Um código simples que lê uma letra ou número pela comunicação serial, converte para binário e acende os leds correspondentes ao número binário na barra de leds.  
+##SensorIR
+Um código simples que acende os leds de acordo com o botão pressionado no controle remoto. O controle utilizado foi o controle do refletor de LED RGB Mundial Lux.  
 
 Dúvidas? Entre em contato comigo! :)  
