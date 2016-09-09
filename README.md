@@ -34,9 +34,9 @@ Em breve será adicionado o cricuito.
 
 ## temperatura
 Sistema de controle da rotação do cooler de acordo com a temperatura (é o mesmo utilizado no **Estacionamentov1.5**).  
-Se a temperatura estiver abaixo dos 25ºC o cooler ficará desligado.  
-Se a temperatura estiver entre 25º e 27ºC o cooler ligará e ficará com 50% da rotação. (Um cooler de 3000 RPM estará com 1500 RPM).  
-Se a temperatura estiver acima de 27ºC o cooler irá para a rotação máxima.  
+ - Se a temperatura estiver abaixo dos 25ºC o cooler ficará desligado.  
+ - Se a temperatura estiver entre 25º e 27ºC o cooler ligará e ficará com 50% da rotação. (Um cooler de 3000 RPM estará com 1500 RPM).  
+ - Se a temperatura estiver acima de 27ºC o cooler irá para a rotação máxima.  
 
 ## arduino_python
 Utilizando a biblioteca pyserial do Python, fiz um código simples que envia e recebe dados pela comunicação serial do arduino. Nesse código, mando comandos pelo Python via comunicação serial para o arduino e ele acende leds, toca o buzzer, entre outros comandos programados.  
