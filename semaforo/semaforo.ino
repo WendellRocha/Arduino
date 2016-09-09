@@ -10,20 +10,22 @@
  ************************************************************************/ 
 
 const int botao = 8; // botão do semáforo no pino 8
-const int led_green_ped = 9; // led verde do pedestre no pino 9
-const int led_red = 10; // led vermelho no pino 10
-const int led_yellow = 11; // led amarelo no pino 11
-const int led_green = 12; // led verde no pino 12
-const int led_red_ped = 13; // led vermelho do pedestre no pino 13
+const int leds[] = {9, 10, 11, 12, 13}
 int estadodobotao = 0; // estado do botão do semáforo
+
+/**
+  led verde do pedestre no pino 9
+  led vermelho no pino 10
+  led amarelo no pino 11
+  led verde no pino 12
+  led vermelho do pedestre no pino 13
+  */
 
 
 void setup() {
-  pinMode(led_red, OUTPUT); // pino do led_red em modo de saída
-  pinMode(led_yellow, OUTPUT); // pino do led_yellow em modo de saída
-  pinMode(led_green, OUTPUT); // pino do led_green em modo de saída
-  pinMode(led_red_ped, OUTPUT); // pino do led_red_ped em modo de saída
-  pinMode(led_green_ped, OUTPUT); // pino do led_green_ped em modo de saída
+   for(int i = 0; i < 4; i++) {
+    pinMode(leds[i], OUTPUT);
+  }
   pinMode(botao, INPUT); // pino do botão em modo de entrada
 
 }
@@ -33,31 +35,31 @@ void loop() {
   estadodobotao = digitalRead(botao); // atribui o valor da leitura do pino do botão ao estadodobotao
   if (estadodobotao == HIGH) { // se o estado do botão for HIGH (alto, 1)
     delay(10000); // inicia uma contagem de 10 segundos    
-    digitalWrite(led_green, LOW); // após a contagem de 10 segundos, apaga o led verde
-    digitalWrite(led_yellow, HIGH); // após apagar o led vede, acende o amarelo
+    digitalWrite(leds[3], LOW); // após a contagem de 10 segundos, apaga o led verde
+    digitalWrite(leds[2], HIGH); // após apagar o led vede, acende o amarelo
     delay(5000); // inicia uma contagem de 5 segundos
-    digitalWrite(led_yellow, LOW); // após a contagem de 5 segundos, apaga o led amarelo
-    digitalWrite(led_red_ped, LOW); // após a contagem de 5 segundos, apaga o led vermelho para o padestre
+    digitalWrite(leds[2], LOW); // após a contagem de 5 segundos, apaga o led amarelo
+    digitalWrite(leds[4], LOW); // após a contagem de 5 segundos, apaga o led vermelho para o padestre
     digitalWrite(led_red, HIGH); // após a contagem de 5 segundos, acende o led vermelho para os veículos
     delay(750); // delay de segurança para acender o led verde para os pedestres
-    digitalWrite(led_green_ped, HIGH); // após a contagem de 75 milisegundos, acende o led verde para o pedestre
+    digitalWrite(leds[0], HIGH); // após a contagem de 75 milisegundos, acende o led verde para o pedestre
     delay(15000); // inicia uma contagem de 15 segundos
 
-    for (int y = 0; y<1; y++) { // para y igual a zero; y menor que 1; use y e depois incremente                    /* laço para piscar o led vermelho no final da contagem */
-      digitalWrite(led_red, LOW); // apaga o led vermelho dos veículos
+    for (int y = 0; y < 1; y++) { // para y igual a zero; y menor que 1; use y e depois incremente                    /* laço para piscar o led vermelho no final da contagem */
+      digitalWrite(leds[1], LOW); // apaga o led vermelho dos veículos
       delay(250); // conta 25 milisegundos
-      digitalWrite(led_red, HIGH); // acende o led vermelho dos veículos
+      digitalWrite(leds[3], HIGH); // acende o led vermelho dos veículos
     }
        
-    for (int x=0; x<10; x++) { // para x igual a zero; x menor que dez; use x e depois incremete                    /* laço para piscar o led vermelho no final da contagem */
-      digitalWrite(led_green_ped, HIGH); // acende o led verde do padestre
+    for (int x = 0; x < 10; x++) { // para x igual a zero; x menor que dez; use x e depois incremete                    /* laço para piscar o led vermelho no final da contagem */
+      digitalWrite(leds[4], HIGH); // acende o led verde do padestre
       delay(250); // conta 25 milisegundos
-      digitalWrite(led_green_ped, LOW); // apaga o lede verde do padestre
+      digitalWrite(leds[4], LOW); // apaga o lede verde do padestre
       delay(250); // conta 2,5 segundos
     }
     
-    digitalWrite(led_red, LOW); // após a contagem de 15 segundos, apaga o led vermelho
-    digitalWrite(led_green_ped, LOW); // após a contagem de 15 segundos, apaga o led verde do padestre
+    digitalWrite(leds[1], LOW); // após a contagem de 15 segundos, apaga o led vermelho
+    digitalWrite(leds[0], LOW); // após a contagem de 15 segundos, apaga o led verde do padestre
       
   }
   else { // senão 
