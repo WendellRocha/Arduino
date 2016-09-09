@@ -5,21 +5,21 @@
 Sistema de estacionamento simples com controle da rotação do cooler de acordo com a temperatura ambiente. O controle da rotação do cooler foi adicionado pois, provavelmente o arduino ficará em uma caixa sem ventilação.  
 O ticket é impresso no seguinte formato:  
 
-<code>Nome do Cliente;  
-bom dia/boa tarde/boa noite de acordo com o horário;  
-Segunda-Feira, 1 de Janeiro de 1969;  
-Horário de entrada: 21:59:10;  
-Para liberar a sua saída, passe no caixa e troque o ticket pelo cartão.  </code>
+<code>Nome do Cliente;    
+bom dia/boa tarde/boa noite de acordo com o horário;    
+Segunda-Feira, 1 de Janeiro de 1969;    
+Horário de entrada: 21:59:10;    
+Para liberar a sua saída, passe no caixa e troque o ticket pelo cartão.    </code>  
 
 ## estacionamento
 Sistema de estacionamento simples (o sistema acima é um pouco mais complexo) com impressão do ticket na comunicação serial.
 O ticket é impresso no seguinte formato:  
 
-<code>Nome do Cliente;  
-bom dia/boa tarde/boa noite de acordo com o horário;  
-1/1/1969;  
-Horário de entrada: 21:59:10;  
-Para liberar a sua saída, passe no caixa e troque o ticket pelo cartão.  </code>
+<code>Nome do Cliente;    
+bom dia/boa tarde/boa noite de acordo com o horário;    
+1/1/1969;    
+Horário de entrada: 21:59:10;    
+Para liberar a sua saída, passe no caixa e troque o ticket pelo cartão.   </code>  
   
 ## led_pwm
 Varia o brilho do led variando a tensão da porta PWM.
