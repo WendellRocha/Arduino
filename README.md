@@ -24,9 +24,11 @@ Varia o brilho do led variando a tensão da porta PWM.
 
 ## semaforo
 Sistema simples de semáforo sincronizado com o semáforo de pedestres. O vermelho para os carros pisca sinalizando que a contágem está nos últimos 10 segundos e o verde para os pedestres fica piscando nos últimos 10 segundos sinalizando de que o sinal irá fechar.
+Em breve será adicionado o circuito.  
 
 ## semaforo_simples
 Sistema simples de semáforo sincronizado com o semáforo de pedestres.
+Em breve será adicionado o cricuito.  
 
 ## temperatura
 Sistema de controle da rotação do cooler de acordo com a temperatura (é o mesmo utilizado no **Estacionamentov1.5**).  
