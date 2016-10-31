@@ -1,4 +1,4 @@
-/************************************************************************ 
+/************************************************************************
  *  Sistema de data e hora retirado do site Labotarório de Garagem      *
  * (http://arduino.labdegaragem.com/Guia_preview/SMK_11_dataehora.html) *
  * Sistema adaptado para se adequar ao uso.                             *
@@ -10,7 +10,7 @@
  ************************************************************************/
 
 // cooler, botão e sensor de temperatura
-const int botao = 13; 
+const int botao = 13;
 const int cooler = 11;
 const int lm35 = 0;
 int estadodobotao = 0;
@@ -36,7 +36,7 @@ void setup() {
   mes = 0;
   ano = 0;
 
-  
+
   // iniciando o arduino
   Serial.begin(9600);
   Serial.print("Inicializando...\n");
@@ -47,13 +47,13 @@ void setup() {
                "Digite o mes no formato m.\n"
                "Digite o ano no formato aaaa.\n");
    delay(1000);
-                
-  
+
+
   // configura os minutos
   Serial.print("Digite os minutos: \n");
   while (minuto == -1) {
     if (Serial.available() > 0) {
-      minuto = Serial.parseInt();            
+      minuto = Serial.parseInt();
     }
   }
 
@@ -62,7 +62,7 @@ void setup() {
   delay(1000);
   Serial.print("\nMinutos gravados.\n");
   delay(1000);
-  
+
   // configura a hora
   Serial.print("Digite a hora: \n");
   while (hora == 0) {
@@ -76,12 +76,12 @@ void setup() {
   delay(1000);
   Serial.print("\nHora gravada.\n");
   delay(1000);
-  
+
   //configura o dia
   Serial.print("Digite o dia: \n");
   while (dia == 0) {
     if (Serial.available() > 0) {
-      dia = Serial.parseInt();  
+      dia = Serial.parseInt();
     }
   }
 
@@ -90,7 +90,7 @@ void setup() {
    delay(1000);
    Serial.print("\nDia gravado.\n");
    delay(1000);
-   
+
    // configura o mês
    Serial.print("Digite o mes: \n");
    while (mes == 0) {
@@ -118,31 +118,31 @@ void setup() {
    delay(1000);
    Serial.print("\nAno gravado.\n\n");
    delay(1000);
-   
+
 }
 
 void loop() {
-  if(millis() - UtlTime < 0) {     
-    UtlTime = millis();   
-  }   
-  
-  else {     
-    segundo = int((millis() - UtlTime) / 1000);   
+  if(millis() - UtlTime < 0) {
+    UtlTime = millis();
   }
-     
-  if(segundo > 59) {     
-    segundo = 0;     
+
+  else {
+    segundo = int((millis() - UtlTime) / 1000);
+  }
+
+  if(segundo > 59) {
+    segundo = 0;
     minuto++;
     UtlTime = millis();
   }
-   
-  if(minuto > 59) {       
-    hora++;       
+
+  if(minuto > 59) {
+    hora++;
     minuto = 0;
   }
-           
+
   if(hora > 23) {
-    dia++;         
+    dia++;
     hora = 0;
   }
 
@@ -150,43 +150,43 @@ void loop() {
     mes--;
     mes = 1;
   }
-  
-  if(mes == 1||mes == 3||mes == 5||mes == 7||mes == 8||mes == 10||mes == 12) {           
-    if(dia > 31) {             
-      dia = 1;             
-      mes++;             
-      if(mes > 12){               
-        ano++;               
-        mes = 1;             
-      }           
-    }         
-  }
-           
-  else if(mes == 2) {           
-    if(ano % 400 == 0) {             
-      if(dia > 29) {               
-        dia = 1;               
-        mes++;             
-      }           
+
+  if(mes == 1||mes == 3||mes == 5||mes == 7||mes == 8||mes == 10||mes == 12) {
+    if(dia > 31) {
+      dia = 1;
+      mes++;
+      if(mes > 12){
+        ano++;
+        mes = 1;
+      }
     }
   }
-             
-  else if((ano % 4 == 0) && (ano % 100 != 0)) {             
-    if(dia>29) {              
-      dia = 1;               
-      mes++;             
-    }           
+
+  else if(mes == 2) {
+    if(ano % 400 == 0) {
+      if(dia > 29) {
+        dia = 1;
+        mes++;
+      }
+    }
   }
-           
-  else if(dia > 28){              
-      dia = 1;               
-      mes++;             
-    }           
-        
-  else if(dia > 30) {             
-      dia = 1;             
-      mes++;           
-    } 
+
+  else if((ano % 4 == 0) && (ano % 100 != 0)) {
+    if(dia>29) {
+      dia = 1;
+      mes++;
+    }
+  }
+
+  else if(dia > 28){
+      dia = 1;
+      mes++;
+    }
+
+  else if(dia > 30) {
+      dia = 1;
+      mes++;
+    }
 
   for (int i = 0; i <= 7; i++) {
     samples[i] = (5.0 * analogRead(lm35) * 100.0) / 1024.0;
@@ -210,50 +210,40 @@ void loop() {
 
   temperatura = 0;
   delay(100);
-  
+
   estadodobotao = digitalRead(botao);
   if (estadodobotao == HIGH) {
     Serial.print("UNIVERSIDADE FEDERAL DE CAMPINA GRANDE\n");
     Serial.print("Ticket de estacionamento\n\n");
-    
+
     if (hora < 23 && hora <= 12) {
       Serial.print("Bom dia, seja bem-vindo\n\n");
     }
 
     else if (hora > 12 && hora < 18) {
-      Serial.print("Boa tarde, seja bem-vindo\n\n"); 
+      Serial.print("Boa tarde, seja bem-vindo\n\n");
     }
 
     else if (hora >= 18 && hora <= 23) {
       Serial.print("Boa noite, seja bem-vindo\n\n");
     }
-    
-    Serial.print("Data: "); 
-    Serial.print(dia);   
-    Serial.print("/");   
-    Serial.print(mes);   
-    Serial.print("/");   
+
+    Serial.print("Data: ");
+    Serial.print(dia);
+    Serial.print("/");
+    Serial.print(mes);
+    Serial.print("/");
     Serial.print(ano);
-    Serial.print("\n");   
+    Serial.print("\n");
     Serial.print("Horario de entrada: ");
-    Serial.print(hora);   
-    Serial.print(":");   
-    Serial.print(minuto);   
-    Serial.print(":");   
-    Serial.print(segundo); 
+    Serial.print(hora);
+    Serial.print(":");
+    Serial.print(minuto);
+    Serial.print(":");
+    Serial.print(segundo);
     Serial.print(" \n\n");
     Serial.print("Para liberar a sua saida,\n");
     Serial.print("passe no caixa e troque o ticket pelo cartao.\n\n");
-    
-  }  
-}     
- 
 
-
- 
-    
-
-
-
-
-
+  }
+}

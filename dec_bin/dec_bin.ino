@@ -1,4 +1,4 @@
-/************************************************************************ 
+/************************************************************************
  *  Código base retirado do site Electro Schematics                     *
  * (http://www.electroschematics.com/9809/arduino-8-bit-binary-led/)    *
  * Código adaptado para se adequar ao uso.                              *
@@ -8,6 +8,7 @@
  * ao seu código.                                                       *
  * Por favor, não retire os créditos.                                   *
  ************************************************************************/
+#include <Arduino.h>
 
 int letra = 0;    // variable to store number of conversoes
 const byte numbarra = 8; // número de leds da barra
@@ -16,21 +17,21 @@ int state;        // usado para o estado HIGH ou LOW
 byte barra[] = {6, 7, 8, 9, 10, 11, 12, 13};
 
 void setup() {
-  
+
   for(int i = 0; i < numbarra; i++) {
     pinMode(barra[i], OUTPUT);
   }
-  
+
   Serial.begin(9600);
 
 }
 
 void loop() {
-  
+
   if (Serial.available() > 0) {
-    letra = Serial.read();    
+    letra = Serial.read();
   }
-  
+
   String binNumber = String(letra, BIN);
   int binLength = binNumber.length();
   for(int i = 0, x = 1; i < binLength; i++, x+=2) {

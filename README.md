@@ -46,4 +46,11 @@ Um código simples que lê uma letra ou número pela comunicação serial, conve
 ##SensorIR
 Um código simples que acende os leds de acordo com o botão pressionado no controle remoto. O controle utilizado foi o controle do refletor de LED RGB Mundial Lux.  
 
+## rpm
+Um código que faz a leitura do RPM do cooler pelo fio de sinal (geralmente o fio amarelo do conector).  
+
+## arduino_java
+Um código em Java que conecta-se ao Arduino via comunicação serial e imprime na tela tudo que for escrito na comunicação serial.  
+  
+
 Dúvidas? Entre em contato comigo! :)  

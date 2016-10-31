@@ -7,11 +7,12 @@
  * C?digo desponibilizado para ser utilizado e alterado para se adequar *
  * ao seu c?digo.                                                       *
  * Por favor, n?o retire os cr?ditos.                                   *
- ************************************************************************/ 
+ ************************************************************************/
+#include <Arduino.h>
 
 const int botao = 8; // bot?o do sem?foro no pino 8
-const int leds[] = {9, 10, 11, 12, 13}
-int estadodobotao = 0; // estado do bot?o do sem?foro
+const int leds[] = {9, 10, 11, 12, 13};
+int estadoDobotao = 0; // estado do bot?o do sem?foro
 
 /**
   led verde do pedestre no pino 9
@@ -31,18 +32,18 @@ void setup() {
 }
 
 void loop() {
- 
-  estadodobotao = digitalRead(botao); // atribui o valor da leitura do pino do bot?o ao estadodobotao
-  if (estadodobotao == HIGH) { // se o estado do bot?o for HIGH (alto, 1)
-    delay(10000); // inicia uma contagem de 10 segundos    
-    digitalWrite(leds[3], LOW); // ap?s a contagem de 10 segundos, apaga o led verde
-    digitalWrite(leds[2], HIGH); // ap?s apagar o led vede, acende o amarelo
+
+  estadoDobotao = digitalRead(botao); // atribui o valor da leitura do pino do bot?o ao estadodobotao
+  if (estadoDobotao == HIGH) { // se o estado do bot?o for HIGH (alto, 1)
+    delay(10000); // inicia uma contagem de 10 segundos
+    digitalWrite(leds[3], LOW); // apos a contagem de 10 segundos, apaga o led verde
+    digitalWrite(leds[2], HIGH); // apos apagar o led vede, acende o amarelo
     delay(5000); // inicia uma contagem de 5 segundos
-    digitalWrite(leds[2], LOW); // ap?s a contagem de 5 segundos, apaga o led amarelo
-    digitalWrite(leds[4], LOW); // ap?s a contagem de 5 segundos, apaga o led vermelho para o padestre
-    digitalWrite(led_red, HIGH); // ap?s a contagem de 5 segundos, acende o led vermelho para os ve?culos
-    delay(750); // delay de seguran?a para acender o led verde para os pedestres
-    digitalWrite(leds[0], HIGH); // ap?s a contagem de 75 milisegundos, acende o led verde para o pedestre
+    digitalWrite(leds[2], LOW); // apos a contagem de 5 segundos, apaga o led amarelo
+    digitalWrite(leds[4], LOW); // apos a contagem de 5 segundos, apaga o led vermelho para o padestre
+    digitalWrite(leds[1], HIGH); // apos a contagem de 5 segundos, acende o led vermelho para os veiculoso
+    delay(750); // delay de seguranca para acender o led verde para os pedestres
+    digitalWrite(leds[0], HIGH); // apos a contagem de 75 milisegundos, acende o led verde para o pedestre
     delay(15000); // inicia uma contagem de 15 segundos
 
     for (int y = 0; y < 1; y++) { // para y igual a zero; y menor que 1; use y e depois incremente                    /* la?o para piscar o led vermelho no final da contagem */
@@ -50,22 +51,22 @@ void loop() {
       delay(250); // conta 25 milisegundos
       digitalWrite(leds[3], HIGH); // acende o led vermelho dos ve?culos
     }
-       
+
     for (int x = 0; x < 10; x++) { // para x igual a zero; x menor que dez; use x e depois incremete                    /* la?o para piscar o led vermelho no final da contagem */
       digitalWrite(leds[4], HIGH); // acende o led verde do padestre
       delay(250); // conta 25 milisegundos
       digitalWrite(leds[4], LOW); // apaga o lede verde do padestre
       delay(250); // conta 2,5 segundos
     }
-    
+
     digitalWrite(leds[1], LOW); // ap?s a contagem de 15 segundos, apaga o led vermelho
     digitalWrite(leds[0], LOW); // ap?s a contagem de 15 segundos, apaga o led verde do padestre
-      
+
   }
-  else { // sen?o 
-    
-     digitalWrite(led_green, HIGH); // assim que o programa iniciar, ligar? o led verde para os ve?culos
-     digitalWrite(led_red_ped, HIGH); // assim que o programa iniciar, ligar? o led vermelho para o padestre
+  else { // sen?o
+
+     digitalWrite(leds[3], HIGH); // assim que o programa iniciar, ligar? o led verde para os ve?culos
+     digitalWrite(leds[4], HIGH); // assim que o programa iniciar, ligar? o led vermelho para o padestre
   }
 
 }

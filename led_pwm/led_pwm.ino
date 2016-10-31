@@ -1,4 +1,4 @@
-/************************************************************************ 
+/************************************************************************
  *  Feito por: Wendell Stanley Araújo Rocha                             *
  * Link para o repositório: https://github.com/WendellRocha/Arduino     *
  * Código desponibilizado para ser utilizado e alterado para se adequar *
@@ -6,19 +6,21 @@
  * Varia o brilho do led variando a tensão da porta PWM.                *
  * Por favor, não retire os créditos.                                   *
  ************************************************************************/
- 
+
+#include <Arduino.h>
+
 int ledPin = 11;
 float sinVal;
 int ledVal;
- 
-void setup() 
+
+void setup()
 {
   pinMode(ledPin, OUTPUT);
 }
- 
-void loop() 
+
+void loop()
 {
-  for (int x=0; x<180; x++) 
+  for (int x=0; x<180; x++)
   {
     // converte graus para radianos e então obtém o valor do seno
     sinVal = (sin(x*(3.1412/180)));

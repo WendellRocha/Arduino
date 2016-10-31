@@ -1,11 +1,11 @@
-/************************************************************************ 
+/************************************************************************
  *  Feito por: Wendell Stanley Araújo Rocha                             *
  * Link para o repositório: https://github.com/WendellRocha/Arduino     *
  * Código desponibilizado para ser utilizado e alterado para se adequar *
  * ao seu código.                                                       *
  * Sistema de estacionamento com controle da rotação do cooler de acordo*
  * com a temperatura ambiente.                                          *
- * Controle da rotação do cooler de acordo com a temperatura, pois o    *  
+ * Controle da rotação do cooler de acordo com a temperatura, pois o    *
  * arduino, provavelmente, ficará em uma caixa sem circulação de ar.    *
  * Por favor, não retire os créditos.                                   *
  ************************************************************************/
@@ -30,10 +30,7 @@ void verificaTemperatura() {
   else {
     analogWrite(cooler, 0);
   }
-
-  Serial.print(temperatura, DEC);
-  Serial.print(" Cels. \n");
-
+  
   temperatura = 0;
-  delay(1000);
+  delay(50);
 }

@@ -1,7 +1,8 @@
+#include <Arduino.h>
 #include <IRremote.h>
 #include <IRremoteInt.h>
 
-const int leds[] = {9, 10, 11, 12};
+const int leds[4] = {9, 10, 11, 12};
 const int IR = 8;
 int estado;
 float armazenaValor;
@@ -10,7 +11,7 @@ IRrecv irrecv(IR);
 decode_results results;
 
 void setup() {
-  for(int i = 0; i < leds; i++) {
+  for(int i = 0; i <= 3; i++) {
     pinMode(leds[i], OUTPUT);
   }
 
@@ -24,7 +25,7 @@ void loop() {
     Serial.println(results.value, HEX);
     armazenaValor = results.value;
     irrecv.resume();
-    
+
 
     if(armazenaValor == 0xF720DF) {
       Serial.println("Led vermelho ligado!");
@@ -51,7 +52,7 @@ void loop() {
 
     if(armazenaValor == 0xF740BF) {
       Serial.println("Todos os leds foram desligados");
-      for(int i = 0; i < leds; i++) {
+      for(int i = 0; i <= 3; i++) {
         digitalWrite(leds[i], LOW);
       }
     }

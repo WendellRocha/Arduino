@@ -44,6 +44,7 @@ public class SerialTest implements SerialPortEventListener {
 		}
 		if (portId == null) {
 			System.out.println("Nao foi possivel encontrar a porta COM.");
+			System.exit(1);
 			return;
 		}
 
