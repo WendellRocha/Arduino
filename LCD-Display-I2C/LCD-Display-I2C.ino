@@ -10,7 +10,7 @@ void setup() {
 void loop() {
   lcd.setBacklight(HIGH);
   lcd.setCursor(0,0);
-  lcd.print("Iago");
+  lcd.print("Hello");
   lcd.setCursor(0,1);
-  lcd.print("opressor");
+  lcd.print("World");
 }
