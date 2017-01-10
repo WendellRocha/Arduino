@@ -7,12 +7,6 @@
  
 DHT dht(DHTPIN, DHTTYPE);
 
-/*
- * Led red = 11;
- * Led yellow = 10;
- * Led green = 9;
-*/
-
 const int red = 11;
 const int yellow = 10;
 const int green = 9;                                           
@@ -33,6 +27,7 @@ LiquidCrystal_I2C lcd(0x3f,2,1,0,4,5,6,7,3, POSITIVE);
 void setup() {
   lcd.begin (16,2);
   lcd.clear();
+  lcd.setBacklight(HIGH);
   lcd.createChar(0, grau);
   pinMode(red, OUTPUT);
   pinMode(yellow, OUTPUT);
@@ -41,9 +36,9 @@ void setup() {
 }
 
 void loop() {
-  lcd.setBacklight(HIGH);
   float h = dht.readHumidity();
   float t = dht.readTemperature();
+  
   if((t > 26.5 && t <= 28.5) || (h > 65.0 && h <= 70.0) || (t < 16 && t >= 15) || (h < 30 && h >= 25)) {
     warn();
   }
