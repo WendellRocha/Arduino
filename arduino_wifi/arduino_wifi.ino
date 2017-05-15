@@ -1,3 +1,4 @@
+  
 // Programa : Teste modulo wireless ESP8266
 // Autor : Arduino e Cia
 
@@ -12,14 +13,14 @@ SoftwareSerial minhaSerial(2 , 3);
 ESP8266 wifi(minhaSerial);
 
 // Configuracao ID e senha da rede Wireless
-#define SSID        "Zula Moto X"
-#define PASSWORD    "92957153491@5578"
+#define SSID        "Ismenia"
+#define PASSWORD    "menacasa"
 
 
 void setup()
 {
     Serial.begin(9600);
-    minhaSerial.begin(19200);
+    minhaSerial.begin(115200);
 }
 
 void loop(void)
