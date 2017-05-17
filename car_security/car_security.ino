@@ -22,7 +22,6 @@ void setup() {
   pinMode(ledOK, OUTPUT);
   pinMode(ledWarn, OUTPUT);
   pinMode(bomba, OUTPUT);
-  Serial.begin(9600);  
 }
 
 void loop() {
