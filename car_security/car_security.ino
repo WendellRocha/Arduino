@@ -8,12 +8,12 @@ const int bomba = 8;
 int estadodaporta = 1;
 int estadodocartao = 0;
 int estadodobiometrico = 0;
-int sempreLigado = 0;
 int ledOKState = LOW;
 int ledWarnState = LOW;
 unsigned long previousMillis = 0;
 boolean cartaoLido = false;
 boolean biometria = false;
+boolean sempreLigado = false;
 
 void setup() {
   pinMode(biometrico, INPUT);
@@ -31,7 +31,7 @@ void loop() {
   estadodaporta = digitalRead(sensorPorta);
   if(estadodaporta == LOW) {
     portaAberta(currentMillis);
-    if(sempreLigado == 1) {
+     if(sempreLigado) {
       digitalWrite(ledWarn, LOW);
     } else {
       digitalWrite(ledWarn, HIGH);
@@ -40,12 +40,12 @@ void loop() {
 }
 
 void portaAberta(unsigned long currentMillis) {
-  if(biometria || cartaoLido || (sempreLigado == 1)) {
+  if(biometria || cartaoLido || sempreLigado) {
     digitalWrite(ledOK, HIGH);
     return;
   }
   
-  if(currentMillis - previousMillis >= 180000) {
+  if(currentMillis - previousMillis >= 80000) {
     previousMillis = currentMillis;
     digitalWrite(bomba, LOW);
     digitalWrite(ledOK, LOW);
@@ -59,10 +59,10 @@ void verificaCartao() {
       digitalWrite(ledOK, HIGH);
       digitalWrite(ledWarn, LOW);
       cartaoLido = true;
-      sempreLigado = 1;
+      sempreLigado = true;
   } else {
     cartaoLido = false;
-  }   
+  }
 }
 
 void verificaDigital() {
