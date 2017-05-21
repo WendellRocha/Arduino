@@ -8,7 +8,6 @@ const int bomba = 8;
 int estadodaporta = 1;
 int estadodocartao = 0;
 int estadodobiometrico = 0;
-int estadodabomba = 0;
 int ledOKState = LOW;
 int ledWarnState = LOW;
 unsigned long previousMillis = 0;
@@ -51,7 +50,7 @@ void portaAberta(unsigned long currentMillis) {
     return;
   }
   
-  if(currentMillis - previousMillis >= 80000) {
+  if(currentMillis - previousMillis >= 84000) {
     previousMillis = currentMillis;
     digitalWrite(bomba, LOW);
     digitalWrite(ledOK, LOW);
