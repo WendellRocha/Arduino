@@ -1,24 +1,20 @@
 const int biometrico = 13;
-const int cartao = 12;
-const int sensorPorta = 11;
-const int ledOK = 10;
-const int ledWarn = 9;
-const int bomba = 8;
+const int sensorPorta = 12;
+const int ledOK = 11;
+const int ledWarn = 10;
+const int bomba = 9;
 
 int estadodaporta = 1;
-int estadodocartao = 0;
 int estadodobiometrico = 0;
 int ledOKState = LOW;
 int ledWarnState = LOW;
+const long interval = 84000;
 unsigned long previousMillis = 0;
-boolean cartaoLido = false;
-boolean biometria = false;
-boolean sempreLigado = false;
-boolean portaFechada = true;
+bool biometria = false;
+bool portaFechada = true;
 
 void setup() {
   pinMode(biometrico, INPUT);
-  pinMode(cartao, INPUT);
   pinMode(sensorPorta, INPUT);
   pinMode(ledOK, OUTPUT);
   pinMode(ledWarn, OUTPUT);
@@ -27,47 +23,27 @@ void setup() {
 
 void loop() {
   unsigned long currentMillis = millis();
-  verificaCartao();
   verificaDigital();
   estadodaporta = digitalRead(sensorPorta);
-  if(estadodaporta == LOW || portaFechada == false) {
+  if(estadodaporta == LOW || !portaFechada) {
     portaFechada = false;
-    if(portaFechada == false) {
-      portaAberta(currentMillis);
-    }
-    
-    if(sempreLigado) {
-      digitalWrite(ledWarn, LOW);
-    } else {
+    if(!portaFechada) {
       digitalWrite(ledWarn, HIGH);
+      portaAberta(currentMillis);
     }
   }
 }
 
 void portaAberta(unsigned long currentMillis) {
-  if(biometria || cartaoLido || sempreLigado) {
+  if(biometria) {
     digitalWrite(ledOK, HIGH);
     return;
   }
   
-  if(currentMillis - previousMillis >= 84000) {
+  if(currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis;
     digitalWrite(bomba, LOW);
     digitalWrite(ledOK, LOW);
-  }
-}
-
-void verificaCartao() {
-  estadodocartao = digitalRead(cartao);
-  if(estadodocartao == HIGH) {
-    digitalWrite(bomba, HIGH);
-    digitalWrite(ledOK, HIGH);
-    digitalWrite(ledWarn, LOW);
-    cartaoLido = true;
-    sempreLigado = true;
-    portaFechada = true;
-  } else {
-    cartaoLido = false;
   }
 }
 
