@@ -10,7 +10,7 @@ int ledOKState = LOW;
 int ledWarnState = LOW;
 const long interval = 84000;
 unsigned long previousMillis = 0;
-bool biometria = false;
+bool NFC = false;
 bool portaFechada = true;
 
 void setup() {
@@ -35,7 +35,7 @@ void loop() {
 }
 
 void portaAberta(unsigned long currentMillis) {
-  if(biometria) {
+  if(NFC) {
     digitalWrite(ledOK, HIGH);
     return;
   }
@@ -53,9 +53,9 @@ void verificaNFC() {
     digitalWrite(bomba, HIGH);
     digitalWrite(ledOK, HIGH);
     digitalWrite(ledWarn, LOW);
-    biometria = true;
+    NFC = true;
     portaFechada = true;
   } else {
-    biometria = false;
+    NFC = false;
   }
 }
