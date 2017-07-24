@@ -1,11 +1,11 @@
-const int biometrico = 13;
+const int NFC = 13;
 const int sensorPorta = 12;
 const int ledOK = 11;
 const int ledWarn = 10;
 const int bomba = 9;
 
 int estadodaporta = 1;
-int estadodobiometrico = 0;
+int estadodoNFC = 0;
 int ledOKState = LOW;
 int ledWarnState = LOW;
 const long interval = 84000;
@@ -14,7 +14,7 @@ bool biometria = false;
 bool portaFechada = true;
 
 void setup() {
-  pinMode(biometrico, INPUT);
+  pinMode(NFC, INPUT);
   pinMode(sensorPorta, INPUT);
   pinMode(ledOK, OUTPUT);
   pinMode(ledWarn, OUTPUT);
@@ -47,9 +47,9 @@ void portaAberta(unsigned long currentMillis) {
   }
 }
 
-void verificaDigital() {
-  estadodobiometrico = digitalRead(biometrico);
-  if(estadodobiometrico == HIGH) {
+void verificaNFC() {
+  estadodoNFC = digitalRead(NFC);
+  if(estadodoNFC == HIGH) {
     digitalWrite(bomba, HIGH);
     digitalWrite(ledOK, HIGH);
     digitalWrite(ledWarn, LOW);
