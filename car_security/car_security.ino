@@ -16,8 +16,6 @@ int estadodaporta = 1;
 int ledOKState = LOW;
 int ledWarnState = LOW;
 time_t t;
-const unsigned long interval = 84000;
-unsigned long timer;
 bool nfc = false;
 bool portaFechada = true;
 
