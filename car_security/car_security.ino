@@ -1,3 +1,5 @@
+#include <Time.h>
+#include <TimeLib.h>
 #include <SPI.h>
 #include <MFRC522.h>
 
@@ -13,13 +15,14 @@ const int bomba = 5;
 int estadodaporta = 1;
 int ledOKState = LOW;
 int ledWarnState = LOW;
-const long interval = 84000;
-unsigned long previousMillis = 0;
+time_t t;
+const unsigned long interval = 84000;
+unsigned long timer;
 bool nfc = false;
 bool portaFechada = true;
 
 void setup() {
-  Serial.begin(9600); // Inicia a serial
+  Serial.begin(9600);
   SPI.begin();        // Inicia  SPI bus
   mfrc522.PCD_Init(); // Inicia MFRC522
   pinMode(sensorPorta, INPUT);
@@ -29,30 +32,34 @@ void setup() {
 }
 
 void loop() {
-  unsigned long currentMillis = millis();
   verificaNFC();
   estadodaporta = digitalRead(sensorPorta);
   if (estadodaporta == LOW || !portaFechada) {
+    t = now();
     portaFechada = false;
     if (!portaFechada) {
-      Serial.println("Porta aberta");
       digitalWrite(ledWarn, HIGH);
-      portaAberta(currentMillis);
+      portaAberta(t);
     }
+  }
+
+  if(portaFechada || minute(t) > 2) {
+    setTime(0,0,0,1,1,00);
   }
 }
 
-void portaAberta(unsigned long currentMillis) {
+void portaAberta(time_t t) {
   if (nfc) {
     digitalWrite(ledOK, HIGH);
-    Serial.println("Porta Fechada");
     return;
   }
 
-  if (currentMillis - previousMillis >= interval) {
-    previousMillis = currentMillis;
+  time_t minutet1 = minute(t);
+  Serial.println(minutet1); 
+  if (minute(t) == 2) {
     digitalWrite(bomba, LOW);
     digitalWrite(ledOK, LOW);
+    setTime(0,0,0,1,1,00);
   }
 }
 
