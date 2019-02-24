@@ -26,5 +26,5 @@ void loop() {
 int readTemp() {
     int temperature = temp.getTemp();
     delay(1000);
-    return temperature;
+    return temperature
 }
