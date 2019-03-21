@@ -88,7 +88,7 @@ void setup() {
   */
   if (EEPROM.read(1) != 143) {
     Serial.println(F("Não há master card definido"));
-    Serial.println(F("Escanei um cartão para definí-lo como master card"));
+    Serial.println(F("Escaneie um cartão para definí-lo como master card"));
     do {
       successRead = getID();  // sets successRead to 1 when we get read from
                               // reader otherwise 0
