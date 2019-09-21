@@ -1,18 +1,6 @@
-/* Desafio do sem?foro com sem?foro para padestres                      *
- * Wendell Rocha, 115210754                                             *
- * Inicia??o ? Computa??o, 2015.2                                       *
- * wendell.rocha@ccc.ufcg.edu.br                                        *
- * Feito por: Wendell Stanley Ara?jo Rocha                              *
- * Link para o reposit?rio: https://github.com/WendellRocha/Arduino     *
- * C?digo desponibilizado para ser utilizado e alterado para se adequar *
- * ao seu c?digo.                                                       *
- * Por favor, n?o retire os cr?ditos.                                   *
- ************************************************************************/
-#include <Arduino.h>
-
 const int botao = 8; // bot?o do sem?foro no pino 8
 const int leds[] = {9, 10, 11, 12, 13};
-int estadoDobotao = 0; // estado do bot?o do sem?foro
+boolean abre = false;
 
 /**
   led verde do pedestre no pino 9
@@ -20,21 +8,18 @@ int estadoDobotao = 0; // estado do bot?o do sem?foro
   led amarelo no pino 11
   led verde no pino 12
   led vermelho do pedestre no pino 13
-  */
+*/
 
 
 void setup() {
-   for(int i = 0; i < 4; i++) {
+  for (int i = 0; i < 4; i++) {
     pinMode(leds[i], OUTPUT);
   }
-  pinMode(botao, INPUT); // pino do bot?o em modo de entrada
-
 }
 
 void loop() {
-
-  estadoDobotao = digitalRead(botao); // atribui o valor da leitura do pino do bot?o ao estadodobotao
-  if (estadoDobotao == HIGH) { // se o estado do bot?o for HIGH (alto, 1)
+  
+  if (abre) { // se o estado do bot?o for HIGH (alto, 1)
     delay(10000); // inicia uma contagem de 10 segundos
     digitalWrite(leds[3], LOW); // apos a contagem de 10 segundos, apaga o led verde
     digitalWrite(leds[2], HIGH); // apos apagar o led vede, acende o amarelo
@@ -62,11 +47,12 @@ void loop() {
     digitalWrite(leds[1], LOW); // ap?s a contagem de 15 segundos, apaga o led vermelho
     digitalWrite(leds[0], LOW); // ap?s a contagem de 15 segundos, apaga o led verde do padestre
 
-  }
-  else { // sen?o
+  } else { // sen?o
 
-     digitalWrite(leds[3], HIGH); // assim que o programa iniciar, ligar? o led verde para os ve?culos
-     digitalWrite(leds[4], HIGH); // assim que o programa iniciar, ligar? o led vermelho para o padestre
+    digitalWrite(leds[3], HIGH); // assim que o programa iniciar, ligar? o led verde para os ve?culos
+    digitalWrite(leds[4], HIGH); // assim que o programa iniciar, ligar? o led vermelho para o padestre
+    delay(1000);
+    abre = true;
   }
 
 }
